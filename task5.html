@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product Class</title>
+  </head>
+  <body>
+    <script>
+      class Product {
+        constructor(name, price, quantity) {
+          this.name = name;
+          this.price = price;
+          this.quantity = quantity;
+        }
+
+        calculateTotalValue() {
+          return this.price * this.quantity;
+        }
+      }
+
+      const product1 = new Product('Laptop', 1500, 3);
+      console.log('Name:', product1.name);
+      console.log('Price:', product1.price);
+      console.log('Quantity:', product1.quantity);
+      console.log('Total Value:', product1.calculateTotalValue());
+    </script>
+  </body>
+</html>

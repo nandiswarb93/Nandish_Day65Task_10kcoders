@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vehicle Classes</title>
+  </head>
+  <body>
+    <script>
+      class Vehicle {
+        constructor(make, model, year) {
+          this.make = make;
+          this.model = model;
+          this.year = year;
+        }
+
+        getDetails() {
+          return `Make: ${this.make}, Model: ${this.model}, Year: ${this.year}`;
+        }
+      }
+
+    
+      class Car extends Vehicle {
+        constructor(make, model, year, doors) {
+          super(make, model, year);
+          this.doors = doors;
+        }
+
+        getCarDetails() {
+          return `${this.getDetails()}, Doors: ${this.doors}`;
+        }
+
+        startEngine() {
+          console.log(`The engine of the ${this.make} ${this.model} is now running.`);
+        }
+      }
+
+      class Motorcycle extends Vehicle {
+        constructor(make, model, year, type) {
+          super(make, model, year);
+          this.type = type; // e.g., cruiser, sport
+        }
+
+        getMotorcycleDetails() {
+          return `${this.getDetails()}, Type: ${this.type}`;
+        }
+
+        startEngine() {
+          console.log(`The engine of the ${this.make} ${this.model} motorcycle is now running.`);
+        }
+      }
+
+      // Example usage
+      const myCar = new Car('Toyota', 'Corolla', 2022, 4);
+      console.log(myCar.getCarDetails()); 
+      myCar.startEngine();
+
+      const myMotorcycle = new Motorcycle('Harley-Davidson', 'Street 750', 2021, 'Cruiser');
+      console.log(myMotorcycle.getMotorcycleDetails());
+      myMotorcycle.startEngine();
+    </script>
+  </body>
+</html>

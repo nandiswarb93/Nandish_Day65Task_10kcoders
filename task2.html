@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bank Account Class</title>
+  </head>
+  <body>
+    <script>
+      class BankAccount {
+        constructor(accountNumber, accountHolder, balance = 0) {
+          this.accountNumber = accountNumber;
+          this.accountHolder = accountHolder;
+          this.balance = balance;
+        }
+
+        deposit(amount) {
+          if (amount > 0) {
+            this.balance += amount;
+            console.log(`Deposited: ${amount}. New balance: ${this.balance}`);
+          } else {
+            console.log('Deposit amount must be positive.');
+          }
+        }
+
+        withdraw(amount) {
+          if (amount > 0 && amount <= this.balance) {
+            this.balance -= amount;
+            console.log(`Withdrawn: ${amount}. New balance: ${this.balance}`);
+          } else if (amount > this.balance) {
+            console.log('Insufficient funds.');
+          } else {
+            console.log('Withdrawal amount must be positive.');
+          }
+        }
+      }
+
+      const myAccount = new BankAccount('123456789', 'John Doe', 1000);
+      console.log('Account Number:', myAccount.accountNumber);
+      console.log('Account Holder:', myAccount.accountHolder);
+      console.log('Initial Balance:', myAccount.balance);
+
+      myAccount.deposit(500);
+      myAccount.withdraw(200);
+      myAccount.withdraw(1500);
+    </script>
+  </body>
+</html>

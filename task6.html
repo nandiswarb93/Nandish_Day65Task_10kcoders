@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shape Classes</title>
+  </head>
+  <body>
+    <script>
+      // Base class Shape
+      class Shape {
+        constructor(name, color) {
+          this.name = name;
+          this.color = color;
+        }
+
+        getDetails() {
+          return `Name: ${this.name}, Color: ${this.color}`;
+        }
+      }
+
+      // Subclass Circle
+      class Circle extends Shape {
+        constructor(name, color, radius) {
+          super(name, color);
+          this.radius = radius;
+        }
+
+        calculateArea() {
+          return Math.PI * Math.pow(this.radius, 2);
+        }
+
+        calculatePerimeter() {
+          return 2 * Math.PI * this.radius;
+        }
+      }
+
+      // Subclass Rectangle
+      class Rectangle extends Shape {
+        constructor(name, color, width, height) {
+          super(name, color);
+          this.width = width;
+          this.height = height;
+        }
+
+        calculateArea() {
+          return this.width * this.height;
+        }
+
+        calculatePerimeter() {
+          return 2 * (this.width + this.height);
+        }
+      }
+
+      // Example usage
+      const circle = new Circle('Circle', 'Red', 5);
+      console.log(circle.getDetails()); // Output: Name: Circle, Color: Red
+      console.log('Circle Area:', circle.calculateArea()); // Output: Circle Area: 78.53981633974483
+      console.log('Circle Perimeter:', circle.calculatePerimeter()); // Output: Circle Perimeter: 31.41592653589794
+
+      const rectangle = new Rectangle('Rectangle', 'Blue', 4, 7);
+      console.log(rectangle.getDetails()); // Output: Name: Rectangle, Color: Blue
+      console.log('Rectangle Area:', rectangle.calculateArea()); // Output: Rectangle Area: 28
+      console.log('Rectangle Perimeter:', rectangle.calculatePerimeter()); // Output: Rectangle Perimeter: 22
+    </script>
+  </body>
+</html>
